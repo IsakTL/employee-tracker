@@ -4,7 +4,7 @@
 This is a challenge assignment for a bootcamp, designed as an exercise in using PostgreSQL. It uses the inquirer package and node to allow a user to interact with a database of employees in various ways.
 
 ## Instructions
-Download the repo, npm i to install, then npm start to run the program.
+Download the repo, npm i to install, connect to postgres and run schema and seeds.sql, then npm start to run the program.
 
 ## Usage
 Follow the prompts in the terminal to manipulate and view the worker database.
