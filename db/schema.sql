@@ -1,15 +1,15 @@
 -- Start from scratch each time
-DROP DATABASE worker_db IF EXISTS;
+DROP DATABASE IF EXISTS worker_db;
 CREATE DATABASE worker_db;
 \c worker_db;
 
 CREATE TABLE departments (
     id SERIAL PRIMARY KEY,
-    department_name VARCHAR(30) UNIQUE NOT NULL
+    department_name VARCHAR(50) UNIQUE NOT NULL
 );
 CREATE TABLE roles (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(30) UNIQUE NOT NULL,
+    title VARCHAR(50) UNIQUE NOT NULL,
     salary DECIMAL NOT NULL,
     department_id INTEGER NOT NULL,
     FOREIGN KEY (department_id) REFERENCES departments(id)

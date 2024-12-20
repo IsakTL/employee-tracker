@@ -13,23 +13,20 @@ const app = express();
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// // Hardcoded query: DELETE FROM course_names WHERE id = 3;
-// pool.query(`DELETE FROM course_names WHERE id = $1`, [3], (err: Error, result: QueryResult) => {
-//   if (err) {
-//     console.log(err);
-//   } else {
-//     console.log(`${result.rowCount} row(s) deleted!`);
-//   }
-// });
+// Hardcoded query for all roles
+const queryStr = 'SELECT * FROM employees JOIN roles ON employees.role_id = roles.id';
 
-// Query database
-pool.query('SELECT * FROM course_names', (err: Error, result: QueryResult) => {
-  if (err) {
-    console.log(err);
-  } else if (result) {
-    console.log(result.rows);
-  }
-});
+async function showAllWorkers() {
+    pool.query(queryStr, (err: Error, result: QueryResult) => {
+        if (err) {
+            console.log(err);
+        } else if (result) {
+            console.log(result.rows);
+        }
+    });
+}
+
+showAllWorkers();
 
 // Default response for any other request (Not Found)
 app.use((_req, res) => {
